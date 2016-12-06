@@ -1,0 +1,18 @@
+{
+  "name": "rmq_service_template",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Dara Hayes",
+  "license": "ISC",
+  "devDependencies": {},
+  "dependencies": {
+    "amqplib": "^0.4.2",
+    "fast-json-parse": "^1.0.2",
+    "pino": "^3.0.5"
+  }
+}
