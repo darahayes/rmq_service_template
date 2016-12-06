@@ -4,5 +4,3 @@ module.exports = {
     q: process.env.RABBITMQ_QUEUE || 'node_worker'
   }
 }
-
-console.log(module.exports)
