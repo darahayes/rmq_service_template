@@ -14,7 +14,7 @@ service:
   build: .
   container_name: template
   environment:
-    RABBITMQ_URL: "amqp://rabbitmq:rabbitmq@rabbit"
+    RABBITMQ_URL: "amqp://admin:admin@rabbit"
     RABBITMQ_QUEUE: "test.queue"
   links:
     - rabbit
