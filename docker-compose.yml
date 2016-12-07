@@ -10,7 +10,7 @@ rabbit:
   labels:
     NAME: "rabbitmq"
 
-app:
+service:
   build: .
   container_name: template
   environment:
