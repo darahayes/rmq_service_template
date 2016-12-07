@@ -1,7 +1,19 @@
 'use strict'
 
 const config = require('./config')
-const task = require('./tasks/task')
-const amqpConnector = require('./lib/amqp_connector')
+const thingy = require('./lib/thingy')()
 
-amqpConnector.start(config.rabbit, task.perform)
+thingy.transport(require('./lib/amqp_transport'), config.rabbit)
+
+thingy.receive((msg, dispatch, done) => {
+  console.log('message received', msg)
+  dispatch('jenny.other', {'msg': 'hello from the thingy'})
+  done()
+})
+
+thingy.start((err) => {
+  if (err) {
+    throw err
+  }
+  console.log('thingy started')
+})
