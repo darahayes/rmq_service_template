@@ -1,0 +1,20 @@
+rabbit:
+  image: "rabbitmq:3-management"
+  hostname: "rabbit"
+  environment:
+    RABBITMQ_DEFAULT_USER: "admin"
+    RABBITMQ_DEFAULT_PASS: "admin"
+  ports:
+    - "15672:15672"
+    - "5672:5672"
+  labels:
+    NAME: "rabbitmq"
+
+app:
+  build: .
+  container_name: template
+  environment:
+    RABBITMQ_URL: "amqp://rabbitmq:rabbitmq@rabbit"
+    RABBITMQ_QUEUE: "test.queue"
+  links:
+    - rabbit
