@@ -5,9 +5,9 @@ const thingy = require('./lib/thingy')()
 
 thingy.transport(require('./lib/amqp_transport'), config.rabbit)
 
-thingy.receive((msg, done) => {
+thingy.receive((msg, dispatch, done) => {
   console.log('message received', msg)
-  thingy.dispatch('jenny.other', {'msg': 'hello from the thingy'})
+  dispatch('jenny.other', {'msg': 'hello from the thingy'})
   done()
 })
 
