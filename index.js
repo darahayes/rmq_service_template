@@ -11,4 +11,9 @@ thingy.receive((msg, dispatch, done) => {
   done()
 })
 
-thingy.start()
+thingy.start((err) => {
+  if (err) {
+    throw err
+  }
+  console.log('thingy started')
+})
